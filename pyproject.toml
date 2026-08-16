@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sysdiag"
+version = "1.0.0"
+description = "Cross-platform CLI for L1 IT diagnostics: network, system health, processes, ports"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "psutil",
+    "rich",
+    "dnspython",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-cov", "mypy"]
+
+[project.scripts]
+sysdiag = "sysdiag:main"
+
+[tool.setuptools]
+py-modules = ["sysdiag"]
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
