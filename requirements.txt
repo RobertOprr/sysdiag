@@ -1,0 +1,3 @@
+# dependencies are declared in pyproject.toml; this installs the package (editable)
+# plus its dev extras (pytest, pytest-cov, mypy) in one go
+-e .[dev]
