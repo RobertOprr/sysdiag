@@ -1,5 +1,9 @@
 # sysdiag
 
+[![tests](https://github.com/RobertOprr/sysdiag/actions/workflows/tests.yml/badge.svg)](https://github.com/RobertOprr/sysdiag/actions/workflows/tests.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
+
 A command-line IT diagnostics tool that runs the classic L1 help-desk checks —
 connectivity, DNS, system health, and top processes — and prints a clear report.
 Cross-platform: works the same on Windows and Linux.
