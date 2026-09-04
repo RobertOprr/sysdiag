@@ -4,8 +4,8 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
 
-A command-line IT diagnostics tool that runs the classic L1 help-desk checks —
-connectivity, DNS, system health, and top processes — and prints a clear report.
+A command-line IT diagnostics tool that runs the classic L1 help-desk checks :
+connectivity, DNS, system health, and top processes : and prints a clear report.
 Cross-platform: works the same on Windows and Linux.
 
 ![sysdiag sample report](assets/demo.svg)
@@ -27,11 +27,11 @@ Cross-platform: works the same on Windows and Linux.
   from the Windows Event Log (`wevtutil`) or `journalctl -p err` on Linux
 - **Problems**: flags disk/memory usage over 90% (configurable), failed ping,
   failed DNS, a disabled firewall, or recent system errors. Exit code is `1`
-  if any problems were found, `0` otherwise — safe to use in cron/CI/monitoring.
-- **Suggested Fixes**: for each flagged problem, a plain-English fix — OS-aware
+  if any problems were found, `0` otherwise : safe to use in cron/CI/monitoring.
+- **Suggested Fixes**: for each flagged problem, a plain-English fix : OS-aware
   (`ipconfig /flushdns` vs `resolvectl flush-caches`) and, for high memory,
   personalized with the actual top memory-consuming process from the same run.
-  **Suggest-only** — sysdiag never executes anything itself; it always tells
+  **Suggest-only** : sysdiag never executes anything itself; it always tells
   you, you always decide.
 
 Report output is colorized with `rich` (green = healthy, red = flagged) when
@@ -90,7 +90,7 @@ python sysdiag.py --output report.html    # self-contained, colored HTML
 ## Sample output
 
 Matches the screenshot above (see `scripts/generate_demo_svg.py` for the fixed
-sample data — never the machine's real IP/gateway):
+sample data : never the machine's real IP/gateway):
 
 ```
 == Network ==
@@ -145,9 +145,9 @@ mypy sysdiag.py
 flagging, fix suggestions, report formatting, ping-output parsing, gateway
 parsing, port-list parsing, resolver-targeted DNS, event-log parsing, firewall
 status parsing, JSON output shape, exit codes, `--output` file writing in all
-three formats) with system calls mocked out — they don't depend on the machine
+three formats) with system calls mocked out : they don't depend on the machine
 they run on. The untested ~14% is thin OS-call wrappers (the actual
-psutil/ping/traceroute invocations) — deliberately out of scope per the "mock
+psutil/ping/traceroute invocations) : deliberately out of scope per the "mock
 system calls, test logic" testing philosophy above, rather than a coverage gap.
 
 The codebase is fully type-hinted and passes `mypy` in strict mode. CI
@@ -166,13 +166,13 @@ pyinstaller --onefile --name sysdiag sysdiag.py
 
 ## Project structure
 
-- `sysdiag.py` — the CLI
-- `test_sysdiag.py` — pytest unit tests
-- `pyproject.toml` — packaging (installable via `pip install -e .`, exposes
+- `sysdiag.py` : the CLI
+- `test_sysdiag.py` : pytest unit tests
+- `pyproject.toml` : packaging (installable via `pip install -e .`, exposes
   the `sysdiag` command), dependencies, mypy config
-- `requirements.txt` — convenience wrapper around `pip install -e .[dev]`
-- `LICENSE` — MIT
-- `CHANGELOG.md` — release notes ([Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format)
-- `.github/workflows/tests.yml` — CI (pytest + coverage + mypy, Ubuntu + Windows)
-- `assets/demo.svg` — the screenshot above, generated from fixed sample data
+- `requirements.txt` : convenience wrapper around `pip install -e .[dev]`
+- `LICENSE` : MIT
+- `CHANGELOG.md` : release notes ([Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format)
+- `.github/workflows/tests.yml` : CI (pytest + coverage + mypy, Ubuntu + Windows)
+- `assets/demo.svg` : the screenshot above, generated from fixed sample data
   (never the machine's real IP/gateway) via `python scripts/generate_demo_svg.py`
